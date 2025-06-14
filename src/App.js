@@ -5,20 +5,28 @@ import Contact from "./Components/Contact/Contact";
 import Service from "./Components/ServiceNeeds/Service";
 
 function App() {
-  const [state, setState] = useState(3);
+  const [step, setStep] = useState(1);
+ 
+
+  const handleNext = () => {
+    setStep((prev) => prev + 1);
+  };
+  const handlePrev = () => {
+    setStep((prev) => prev - 1);
+  };
 
   return (
     <div className="App bg-slate-200 h-screen flex items-center justify-center">
       <div className="w-5/12  bg-white h-[600px] rounded-lg ">
         <div className="w-full bg-blue-600 h-20 rounded">
           <h1 className="text-white text-left font-bold p-4 text-2xl ">
-            Service request form
+            Service Request Form
           </h1>
         </div>
 
-        {state === 1 && <ChildDetails />}
-        {state === 2 && <Service />}
-        {state === 3 && <Contact />}
+        {step === 1 && (<ChildDetails onNext={handleNext} />)}
+        {step === 2 && (<Service onNext={handleNext} onPrev={handlePrev} />)}
+        {step === 3 && (<Contact onPrev={handlePrev} />)}
       </div>
     </div>
   );

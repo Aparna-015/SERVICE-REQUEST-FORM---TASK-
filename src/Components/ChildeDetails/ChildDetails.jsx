@@ -1,6 +1,7 @@
 import React from "react";
 
-const ChildDetails = () => {
+
+const ChildDetails = ({onNext}) => {
   return (
     <div className="main-container w-8/12 mx-auto  font-bold p-8 ">
       <div className="W-full  space-y-5 p-2 ">
@@ -21,7 +22,7 @@ const ChildDetails = () => {
         </div>
         <div className="py-2 space-y-2 ">
           <label className=" flex item-center gap-2 ">
-            Current school type
+            Current School Type
           </label>
 
           <label className="font-normal flex item-center gap-2 ">
@@ -41,7 +42,7 @@ const ChildDetails = () => {
         </div>
 
         <div className="text-center mt-3 ">
-          <button className="bg-gray-500 w-full rounded text-sm text-white">
+          <button className="bg-gray-500 w-full rounded text-sm text-white" onClick={onNext}>
             Next
           </button>
         </div>

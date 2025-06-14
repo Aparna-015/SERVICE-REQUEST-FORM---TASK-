@@ -1,6 +1,6 @@
 import React from "react";
 
-const Service = () => {
+const Service = ({onNext,onPrev}) => {
   return (
     <div className="service-container w-8/12 mx-auto p-4">
       <div className="w-full p-4">
@@ -44,8 +44,8 @@ const Service = () => {
         </div>
 
         <div className="text-right flex justify-between ">
-          <button className="bg-gray-500 text-white px-3 rounded">Prev</button>
-          <button className="bg-blue-500 text-white px-3 rounded">Next</button>
+          <button onClick={onPrev} className="bg-gray-500 text-white px-3 rounded">Prev</button>
+          <button onClick={onNext} className="bg-blue-500 text-white px-3 rounded">Next</button>
         </div>
       </div>
     </div>
