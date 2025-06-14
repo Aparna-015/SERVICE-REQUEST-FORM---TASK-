@@ -1,7 +1,6 @@
 import React from "react";
 
-
-const ChildDetails = ({onNext}) => {
+const ChildDetails = ({ onNext, formdata, handleChange }) => {
   return (
     <div className="main-container w-8/12 mx-auto  font-bold p-8 ">
       <div className="W-full  space-y-5 p-2 ">
@@ -11,14 +10,24 @@ const ChildDetails = ({onNext}) => {
         <div className=" text-left flex flex-col">
           <label className="font-semibold py-2  text-gray-700">Child Age</label>
           <input
-            className="bg-slate-100 py-2"
+            className="bg-slate-100 p-2"
             type="number"
+            name="age"
+            value={formdata.age}
+            onChange={handleChange}
             placeholder="Enter age"
           />
         </div>
         <div className=" text-left flex flex-col">
           <label className="font-semibold py-2  text-gray-700">Diagnosis</label>
-          <input className=" bg-gray-100 py-2" type="text" placeholder="eg: ADHD" />
+          <input
+            className=" bg-gray-100 p-2"
+            type="text"
+            name="diagnosis"
+            value={formdata.diagnosis}
+            onChange={handleChange}
+            placeholder=""
+          />
         </div>
         <div className="py-2 space-y-2 ">
           <label className=" flex item-center gap-2 ">
@@ -26,23 +35,26 @@ const ChildDetails = ({onNext}) => {
           </label>
 
           <label className="font-normal flex item-center gap-2 ">
-            <input type="radio" name="school type" value="Private" />
+            <input type="radio" name="schoolType" value="Private" checked={formdata.schoolType==="Private"} onChange={handleChange} />
             Private
           </label>
 
           <label className="font-normal flex item-center gap-2 ">
-            <input type="radio" name="school type" value="Public" />
+            <input type="radio" name="schoolType" value="Public"  checked={formdata.schoolType==="Public"} onChange={handleChange}/>
             Public
           </label>
 
           <label className="font-normal flex item-center gap-2 ">
-            <input type="radio" name="school type" value="SpeacialSchool" />
+            <input type="radio" name="schoolType" value="SpeacialSchool"  checked={formdata.schoolType==="SpeacialSchool"} onChange={handleChange}/>
             Speacial
           </label>
         </div>
 
         <div className="text-center mt-3 ">
-          <button className="bg-gray-500 w-full rounded text-sm text-white" onClick={onNext}>
+          <button
+            className="bg-gray-500 w-full py-2 rounded text-sm text-white"
+            onClick={onNext}
+          >
             Next
           </button>
         </div>
