@@ -25,14 +25,17 @@ export const contactSchema = Yup.object({
     .matches(/^[a-zA-Z\s]+$/, "Name required"),
 
 
-  email: Yup.string()
+email: Yup.string()
     .required("Email ID is required")
-    .matches(
-      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-      "Invalid email format"
-    ),
+    .test("valid-email", "Invalid email format", (value) => {
+      if (!value) return true; 
+      return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value);
+    }),
 
   phone: Yup.string()
     .required("Phone Number is required")
-    .matches(/^[6-9]\d{9}$/, "Invalid  phone number"),
+    .test("valid-phone", "Invalid phone number", (value) => {
+      if (!value) return true;
+      return /^[6-9]\d{9}$/.test(value);
+    }),
 });

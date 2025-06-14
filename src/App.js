@@ -23,7 +23,7 @@ function App() {
     email: "",
     phone: "",
   });
-  console.log(errors,"errorrr")
+  
 
   const [formData, setFormdata] = useState({
     age: "",
@@ -37,7 +37,7 @@ function App() {
     phone: "",
   });
 
-  console.log(formData, "age");
+  console.log(formData, "formData");
 
   const handleNext = async () => {
     let schema;

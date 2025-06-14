@@ -42,7 +42,7 @@ const Contact = ({ onPrev, formdata, handlechange, handlesubmit, errors }) => {
           value={formdata.phone}
           onChange={handlechange}
           className="w-full bg-slate-100 p-2"
-          type="tel"
+          type="phone"
         />
       </div>
 

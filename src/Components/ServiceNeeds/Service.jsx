@@ -1,6 +1,6 @@
 import React from "react";
 
-const Service = ({ onNext, onPrev, formdata, handlechange,errors }) => {
+const Service = ({ onNext, onPrev, formdata, handlechange, errors }) => {
   return (
     <div className="service-container w-10/12 mx-auto p-4">
       <div className="w-full  p-2">
@@ -12,8 +12,10 @@ const Service = ({ onNext, onPrev, formdata, handlechange,errors }) => {
             Select Type of support needed
           </label>
           <div className="space-y-2 mb-2 p-2 ">
-                     {errors.support && <p className="text-red-500 text-xs ">{errors.support} </p>}
-  
+            {errors.support && (
+              <p className="text-red-500 text-xs ">{errors.support} </p>
+            )}
+
             <label className=" flex items-center gap-2 ">
               <input
                 type="checkbox"
@@ -50,7 +52,9 @@ const Service = ({ onNext, onPrev, formdata, handlechange,errors }) => {
           <label className="font-bold  text-gray-700 ">
             Preferred frequency
           </label>
-                     {errors.frequency && <p className="text-red-500 text-xs ">{errors.frequency} </p>}
+          {errors.frequency && (
+            <p className="text-red-500 text-xs ">{errors.frequency} </p>
+          )}
 
           <select
             name="frequency"
@@ -58,16 +62,19 @@ const Service = ({ onNext, onPrev, formdata, handlechange,errors }) => {
             onChange={handlechange}
             className="w-full px-2 py-2 focus:ring-2 focus:ring-blue-100 border border-gray-200 rounded-lg"
           >
-            <option>Daily</option>
-            <option>Weekly</option>
-            <option>Monthly</option>
+              <option value="" disabled>Select</option>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
           </select>
         </div>
         <div className="mb-2 space-y-2">
           <label className="font-bold  text-gray-700">
             Any specific requirement
           </label>
-                     {errors.requirements && <p className="text-red-500 text-xs ">{errors.requirements} </p>}
+          {errors.requirements && (
+            <p className="text-red-500 text-xs ">{errors.requirements} </p>
+          )}
 
           <textarea
             name="requirements"
