@@ -5,8 +5,7 @@ import Contact from "./Components/Contact/Contact";
 import Service from "./Components/ServiceNeeds/Service";
 
 function App() {
-  const [state, setState] = useState(1);
-
+  const [state, setState] = useState(3);
 
   return (
     <div className="App bg-slate-200 h-screen flex items-center justify-center">
@@ -17,11 +16,9 @@ function App() {
           </h1>
         </div>
 
-        {state === 1 && <ChildDetails  />}
+        {state === 1 && <ChildDetails />}
         {state === 2 && <Service />}
         {state === 3 && <Contact />}
-
-       
       </div>
     </div>
   );

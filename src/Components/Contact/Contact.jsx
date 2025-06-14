@@ -3,7 +3,7 @@ import React from "react";
 const Contact = () => {
   return (
     <div className="contact-section  w-10/12 mx-auto p-6">
-      <h1 className="text-center mb-4 text-xl">Contact Information</h1>
+      <h1 className="text-3xl  text-center mb-6 ">Contact Information</h1>
       <div className="space-y-2 mb-4">
         <h1> Parent's Name</h1>
         <input className="w-full bg-slate-100" type="" />
