@@ -22,6 +22,10 @@ const ChildDetails = () => {
         <input type="radio" name="school type" value="SpeacialSchool" />
         <label className="font-normal">Speacial</label>
       </div>
+
+      <div className="text-right">
+        <button className="bg-gray-500 text-white">NEXT</button>
+      </div>
     </div>
   );
 };
