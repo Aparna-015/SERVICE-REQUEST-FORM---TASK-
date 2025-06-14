@@ -2,9 +2,9 @@ import React from "react";
 
 const Service = ({ onNext, onPrev, formdata, handlechange }) => {
   return (
-    <div className="service-container w-8/12 mx-auto p-4">
-      <div className="w-full p-4">
-        <h1 className="text-3xl mb-5 text-center text-gray-800 p-2  ">
+    <div className="service-container w-10/12 mx-auto p-4">
+      <div className="w-full  p-4">
+        <h1 className="text-3xl mb-5 text-center font-bold text-gray-800 p-2  ">
           Service Needs
         </h1>
         <div className=" ">

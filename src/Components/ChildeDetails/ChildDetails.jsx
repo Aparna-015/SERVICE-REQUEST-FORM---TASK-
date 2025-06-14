@@ -2,9 +2,9 @@ import React from "react";
 
 const ChildDetails = ({ onNext, formdata, handleChange }) => {
   return (
-    <div className="main-container w-8/12 mx-auto  font-bold p-8 ">
+    <div className="main-container w-10/12 mx-auto  font-bold p-8 ">
       <div className="W-full  space-y-5 p-2 ">
-        <h2 className=" text-3xl text-center mb-6 font-semibold">
+        <h2 className=" text-3xl text-center mb-6 font-bold">
           Child Details
         </h2>
         <div className=" text-left flex flex-col">
@@ -26,7 +26,7 @@ const ChildDetails = ({ onNext, formdata, handleChange }) => {
             name="diagnosis"
             value={formdata.diagnosis}
             onChange={handleChange}
-            placeholder=""
+            placeholder="eg: ADHD"
           />
         </div>
         <div className="py-2 space-y-2 ">

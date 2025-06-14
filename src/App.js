@@ -6,6 +6,7 @@ import Service from "./Components/ServiceNeeds/Service";
 
 function App() {
   const [step, setStep] = useState(1);
+  const [submit, setSubmit] = useState(false);
   const [formData, setFormdata] = useState({
     age: "",
     diagnosis: "",
@@ -13,7 +14,7 @@ function App() {
     support: [],
     frequency: "",
     requirements: "",
-    parentName: "",
+    parentname: "",
     email: "",
     phone: "",
   });
@@ -46,6 +47,11 @@ function App() {
     }
   };
 
+  const handlesubmit = () => {
+    console.log("submitted data successfully", formData);
+    setSubmit(true)
+  };
+
   return (
     <div className="App bg-slate-200 h-screen flex items-center justify-center">
       <div className="w-5/12  bg-white h-[600px] rounded-lg ">
@@ -54,7 +60,6 @@ function App() {
             Service Request Form
           </h1>
         </div>
-
         {step === 1 && (
           <ChildDetails
             onNext={handleNext}
@@ -70,7 +75,19 @@ function App() {
             handlechange={handleChange}
           />
         )}
-        {step === 3 && <Contact onPrev={handlePrev} />}
+        {step === 3 && !submit && (
+          <Contact
+            onPrev={handlePrev}
+            formdata={formData}
+            handlechange={handleChange}
+            handlesubmit={handlesubmit}
+          />
+        )}
+        {submit && (
+          <div className="my-8 text-center">
+            <p>Thank you</p>
+          </div>
+        )}
       </div>
     </div>
   );
