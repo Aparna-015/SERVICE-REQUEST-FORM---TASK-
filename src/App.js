@@ -14,8 +14,8 @@ function App() {
         </div>
 
         <ChildDetails />
-        <Contact/>
-        <Service/>
+        <Contact />
+        <Service />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const ChildDetails = () => {
         <br />
         <input type="radio" name="school type" value="Private" />
         <label className="font-normal">Private</label> <br />
-        <input type="radio" name="school type" value="Public" />{" "}
+        <input type="radio" name="school type" value="Public" />
         <label className="font-normal">Public</label> <br />
         <input type="radio" name="school type" value="SpeacialSchool" />
         <label className="font-normal">Speacial</label>
