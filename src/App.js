@@ -23,7 +23,7 @@ function App() {
     email: "",
     phone: "",
   });
-  console.log(errors.age,"errorrr")
+  console.log(errors,"errorrr")
 
   const [formData, setFormdata] = useState({
     age: "",
@@ -85,7 +85,7 @@ function App() {
 
   const handlesubmit = async () => {
     try {
-      await contactSchema.validate(formData);
+      await contactSchema.validate(formData, { abortEarly: false });
       setErrors({});
       console.log("submitted data successfully", formData);
       setSubmit(true);
@@ -100,7 +100,7 @@ function App() {
 
   return (
     <div className="App bg-slate-200 h-screen flex items-center justify-center">
-      <div className="w-5/12  bg-white h-[600px] rounded-lg ">
+      <div className="w-full max-w-2xl  bg-white h-[600px] rounded-lg ">
         <div className="w-full bg-blue-600 h-20 rounded">
           <h1 className="text-white text-center font-bold p-4 text-2xl ">
             Service Request Form
@@ -120,6 +120,7 @@ function App() {
             onPrev={handlePrev}
             formdata={formData}
             handlechange={handleChange}
+            errors={errors}
           />
         )}
         {step === 3 && !submit && (
@@ -128,6 +129,7 @@ function App() {
             formdata={formData}
             handlechange={handleChange}
             handlesubmit={handlesubmit}
+            errors={errors}
           />
         )}
         {submit && (

@@ -1,18 +1,20 @@
 import React from "react";
 
-const Service = ({ onNext, onPrev, formdata, handlechange }) => {
+const Service = ({ onNext, onPrev, formdata, handlechange,errors }) => {
   return (
     <div className="service-container w-10/12 mx-auto p-4">
-      <div className="w-full  p-4">
-        <h1 className="text-3xl mb-5 text-center font-bold text-gray-800 p-2  ">
+      <div className="w-full  p-2">
+        <h1 className="text-3xl mb-2 text-center font-bold text-gray-800 p-2  ">
           Service Needs
         </h1>
         <div className=" ">
-          <label className="block  mb-2  font-bold text-gray-700">
+          <label className="block   font-bold text-gray-700">
             Select Type of support needed
           </label>
-          <div className="space-y-2 mb-4 p-2 ">
-            <label className=" flex item-center gap-2 ">
+          <div className="space-y-2 mb-2 p-2 ">
+                     {errors.support && <p className="text-red-500 text-xs ">{errors.support} </p>}
+  
+            <label className=" flex items-center gap-2 ">
               <input
                 type="checkbox"
                 name="support"
@@ -20,9 +22,9 @@ const Service = ({ onNext, onPrev, formdata, handlechange }) => {
                 checked={formdata.support.includes("Speach Therapy")}
                 onChange={handlechange}
               />
-              Speach Therapy
+              Speech Therapy
             </label>
-            <label className=" flex item-center gap-2 ">
+            <label className=" flex items-center gap-2 ">
               <input
                 type="checkbox"
                 name="support"
@@ -40,14 +42,16 @@ const Service = ({ onNext, onPrev, formdata, handlechange }) => {
                 checked={formdata.support.includes("Speacial Education")}
                 onChange={handlechange}
               />
-              Speacial Education
+              Special Education
             </label>
           </div>
         </div>
         <div className="mb-2 space-y-2">
           <label className="font-bold  text-gray-700 ">
-            Prefered frequency
+            Preferred frequency
           </label>
+                     {errors.frequency && <p className="text-red-500 text-xs ">{errors.frequency} </p>}
+
           <select
             name="frequency"
             value={formdata.frequency}
@@ -63,6 +67,8 @@ const Service = ({ onNext, onPrev, formdata, handlechange }) => {
           <label className="font-bold  text-gray-700">
             Any specific requirement
           </label>
+                     {errors.requirements && <p className="text-red-500 text-xs ">{errors.requirements} </p>}
+
           <textarea
             name="requirements"
             value={formdata.requirements}

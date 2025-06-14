@@ -21,7 +21,9 @@ export const serviceSchema = Yup.object({
 });
 
 export const contactSchema = Yup.object({
-  parentname: Yup.string().required("parentname is required"),
+  parentname: Yup.string().required("parentname is required")
+    .matches(/^[a-zA-Z\s]+$/, "Name required"),
+
 
   email: Yup.string()
     .required("Email ID is required")
