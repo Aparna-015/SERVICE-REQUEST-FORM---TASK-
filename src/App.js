@@ -3,10 +3,28 @@ import "./App.css";
 import ChildDetails from "./Components/ChildeDetails/ChildDetails";
 import Contact from "./Components/Contact/Contact";
 import Service from "./Components/ServiceNeeds/Service";
+import {
+  ChilddetailsSchema,
+  serviceSchema,
+  contactSchema,
+} from "./Validation/Validation";
 
 function App() {
   const [step, setStep] = useState(1);
   const [submit, setSubmit] = useState(false);
+  const [errors, setErrors] = useState({
+    age: "",
+    diagnosis: "",
+    schoolType: "",
+    support: [],
+    frequency: "",
+    requirements: "",
+    parentname: "",
+    email: "",
+    phone: "",
+  });
+  console.log(errors.age,"errorrr")
+
   const [formData, setFormdata] = useState({
     age: "",
     diagnosis: "",
@@ -21,9 +39,27 @@ function App() {
 
   console.log(formData, "age");
 
-  const handleNext = () => {
-    setStep((prev) => prev + 1);
+  const handleNext = async () => {
+    let schema;
+    if (step === 1) {
+      schema = ChilddetailsSchema;
+    } else if (step === 2) {
+      schema = serviceSchema;
+    }
+
+    try {
+      await schema.validate(formData, { abortEarly: false });
+      setErrors({});
+      setStep((prev) => prev + 1);
+    } catch (error) {
+      const validationerror = {};
+      error.inner.forEach((e) => {
+        validationerror[e.path] = e.message;
+      });
+      setErrors(validationerror);
+    }
   };
+
   const handlePrev = () => {
     setStep((prev) => prev - 1);
   };
@@ -47,9 +83,19 @@ function App() {
     }
   };
 
-  const handlesubmit = () => {
-    console.log("submitted data successfully", formData);
-    setSubmit(true)
+  const handlesubmit = async () => {
+    try {
+      await contactSchema.validate(formData);
+      setErrors({});
+      console.log("submitted data successfully", formData);
+      setSubmit(true);
+    } catch (error) {
+      const validationerror = {};
+      error.inner.forEach((e) => {
+        validationerror[e.path] = e.message;
+      });
+      setErrors(validationerror);
+    }
   };
 
   return (
@@ -65,6 +111,7 @@ function App() {
             onNext={handleNext}
             formdata={formData}
             handleChange={handleChange}
+            errors={errors}
           />
         )}
         {step === 2 && (
